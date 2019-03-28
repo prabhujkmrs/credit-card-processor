@@ -4,9 +4,11 @@ It is a simple full stack application for a credit card provider that allows to 
 
 ## Tools used
 ```
+thymeleaf template engine.
 Java8
-maven
 spring
+maven
+
 ```
 
 ## Run the below command to build:
