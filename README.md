@@ -14,7 +14,7 @@ maven
 ## Run the below command to build:
 
 ```
-./mvnw clean install
+mvn clean install
 
 ```
 
