@@ -3,19 +3,20 @@ It is a simple full stack application for a credit card provider that allows to 
 
 
 ##Tools used
+```
 Java8
-Junit
-Maven
-Build
+maven
+spring
+```
 
-Run the below command to build:
+##Run the below command to build:
 
 ```
 ./mvnw clean install
 
 ```
 
-Testing
+##Testing
 To run the unit tests, execute:
 
 ```
