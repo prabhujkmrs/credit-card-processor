@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<h1>Credit Card System</h1><br>
+
+<form action="#" th:action="@{/card}" th:object="${card}" method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name"/></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Card Number</td>
+            <td><input type="text" name="cardNumber"/></td>
+            <td th:if="${#fields.hasErrors('cardNumber')}" th:errors="*{cardNumber}"></td>
+        </tr>
+        <tr>
+            <td>Limit</td>
+            <td><input type="text" name="limit"/></td>
+            <td th:if="${#fields.hasErrors('limit')}" th:errors="*{limit}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">add</button></td>
+        </tr>
+    </table>
+</form>
+
+   <div>
+        <div th:if="${not #lists.isEmpty(cards)}">
+            <h3>Existing Cards</h3>
+            <table style="border: solid 1px; align-content: left; width: 70%">
+                <thead style="background: cornflowerblue">
+                <tr>
+                    <th>Name</th>
+                    <th>Card Number</th>
+                    <th>Balance</th>
+                    <th>Limit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="card: ${cards}">
+                    <td th:text="${card.name}"></td>
+                    <td th:text="${card.cardNumber}"></td>
+                    <td th:text="${card.balance}"></td>
+                    <td th:text="${card.limit}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</html>
