@@ -30,3 +30,5 @@ mvn verify
 To run the application, execute:
 
 java -jar ./target/credit-card-processor-1.0.jar
+
+Then open a browser and enter the url : http://localhost:8080/card
