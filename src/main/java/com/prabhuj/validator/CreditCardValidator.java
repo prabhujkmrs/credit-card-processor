@@ -25,7 +25,7 @@ public class CreditCardValidator implements Validator {
             if(validateCreditCardNumber(String.valueOf(card.getCardNumber()))){
                errors.rejectValue("cardNumber","invalid.card.cardNumber");
             }
-            if(String.valueOf(card.getCardNumber()).length() >= 19){
+            if(String.valueOf(card.getCardNumber()).length() > 19){
                 errors.rejectValue("cardNumber","invalid.card.length");
             }
     }
