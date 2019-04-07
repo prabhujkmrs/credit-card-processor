@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <td>Card Number</td>
-            <td><input type="text" name="cardNumber" /></td>
+            <td><input type="text" name="cardNumber" maxlength="19"/></td>
             <td th:if="${#fields.hasErrors('cardNumber')}" th:errors="*{cardNumber}"></td>
         </tr>
         <tr>
@@ -39,7 +39,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="card: ${cards}">
+                <tr th:each="card: ${cards}" class="tr">
                     <td th:text="${card.name}"></td>
                     <td th:text="${card.cardNumber}"></td>
                     <td><span th:inline="text">£[[${#numbers.formatDecimal(card.balance, 1, 'DEFAULT', 2, 'POINT')}]]</span></td>

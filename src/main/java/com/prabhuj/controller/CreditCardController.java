@@ -34,7 +34,14 @@ public class CreditCardController {
         CreditCardValidator creditCardValidator = new CreditCardValidator();
         creditCardValidator.validate(card,errors);
         if (!errors.hasErrors()) {
-            cardProcessor.add(card);
+            try {
+                cardProcessor.add(card);
+            }
+            catch (Exception ex){
+                System.out.println("number too large");
+                errors.rejectValue("cardNumber","invalid.card.cardNumber");
+                return "card-view";
+            }
         }
         else{
             return "card-view";
