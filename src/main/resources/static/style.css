@@ -1,0 +1,13 @@
+.button {
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    text-decoration: initial;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

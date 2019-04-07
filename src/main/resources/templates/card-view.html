@@ -2,12 +2,11 @@
       xmlns:th="http://www.thymeleaf.org">
 <h1>Credit Card System</h1><br>
 <head>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
-
 <form action="#" th:action="@{/cards}" th:object="${card}" method="post">
     <table>
-        <tr>
+        <tr>`
             <td>Name</td>
             <td><input type="text" name="name"/></td>
             <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
@@ -23,7 +22,7 @@
             <td th:if="${#fields.hasErrors('limit')}" th:errors="*{limit}"></td>
         </tr>
         <tr>
-            <td><button type="submit">add</button></td>
+            <td><button type="submit" class="button">Add</button></td>
         </tr>
     </table>
 </form>
