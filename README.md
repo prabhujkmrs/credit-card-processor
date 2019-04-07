@@ -6,7 +6,7 @@ The application exposes two HTTP REST endpoints as shown below
 - **GET**  retrieve all cards from the system 
 
 ## Validation
-- Input validation for not empty and not null for mandatory fields
+- Input validation for mandatory fields
 - Credit card numbers checked for compatibility with Luhn 10
 
 ## UI
