@@ -1,7 +1,9 @@
 package com.prabhuj.config;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -25,6 +27,19 @@ public class DataSourceConfig {
     @Bean
     public JdbcTemplate getJdbcTemplate(){
         return new JdbcTemplate(dataSource());
+    }
+
+    /*@PostConstruct
+    public void getDbManager(){
+        DatabaseManagerSwing.main(
+                new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", ""});
+    }*/
+
+    @Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasenames("messages");
+        return messageSource;
     }
 
 }

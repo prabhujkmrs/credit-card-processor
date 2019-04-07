@@ -13,12 +13,15 @@ public class CreditCardValidator implements Validator {
         return false;
     }
 
+    /**
+     * Validate user input and returns error message
+     * @param object
+     * @param errors
+     */
+
     @Override
     public void validate(Object object, Errors errors) {
             Card card = (Card) object;
-           /* if(card.getName().equals("")){
-                errors.rejectValue("name", "invalid.name.value");
-            }*/
             if(validateCreditCardNumber(String.valueOf(card.getCardNumber()))){
                errors.rejectValue("cardNumber","invalid.card.cardNumber");
             }
@@ -27,6 +30,11 @@ public class CreditCardValidator implements Validator {
             }
     }
 
+    /**
+     * Luhn formula to validate credit card numbers
+     * @param cardNo
+     * @return boolean value
+     */
     private boolean validateCreditCardNumber(String cardNo) {
 
         int nDigits = cardNo.length();

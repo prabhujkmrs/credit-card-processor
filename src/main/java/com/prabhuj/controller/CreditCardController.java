@@ -6,13 +6,12 @@ import com.prabhuj.validator.CreditCardValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class CreditCardController {
@@ -25,7 +24,12 @@ public class CreditCardController {
         this.cardProcessor = cardProcessor;
     }
 
-    @PostMapping("/card")
+    /**
+     *  Create a new credit card
+     * @param card
+     * @param errors
+     */
+    @PostMapping("/cards")
     public String addCard(@ModelAttribute("card") @Valid Card card, BindingResult errors){
         CreditCardValidator creditCardValidator = new CreditCardValidator();
         creditCardValidator.validate(card,errors);
@@ -35,10 +39,13 @@ public class CreditCardController {
         else{
             return "card-view";
         }
-        return "redirect:/card";
+        return "redirect:/cards";
     }
-
-    @GetMapping("/card")
+    /**
+     *  Return list of call cards in the system
+     * @param model
+     */
+    @GetMapping("/cards")
     public String getAllCards(Model model){
         model.addAttribute("card", new Card());
         model.addAttribute("cards", cardProcessor.getAllCards());
